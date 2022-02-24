@@ -1,0 +1,1 @@
+export 'package:flutter_gmail_responsive/src/config/responsive.dart';
