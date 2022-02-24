@@ -257,61 +257,65 @@ class _ReadMailState extends State<ReadMail> {
                   Spacer(
                     flex: 1,
                   ),
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.reply),
-                        onPressed: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (builder) => Reply(
-                          //             index: 1,
-                          //             title: "Reply",
-                          //             user: widget.user.name,
-                          //             subject: widget.subject,
-                          //             msg: widget.text,
-                          //             time: widget.time)));
-                        },
-                      ),
-                      PopupMenuButton<String>(
-                        //offset: Offset(10, 40),
-                        onSelected: (value) {
-                          print(value);
-                        },
-                        itemBuilder: (BuildContext context) {
-                          return [
-                            PopupMenuItem(
-                              child: Text("Reply all"),
-                              value: "Reply all",
-                            ),
-                            PopupMenuItem(
-                              child: Text("Forward"),
-                              value: "Forward",
-                            ),
-                            PopupMenuItem(
-                              child: Text("Add star"),
-                              value: "Add star",
-                            ),
-                            PopupMenuItem(
-                              child: Text("Print"),
-                              value: "Print",
-                            ),
-                            PopupMenuItem(
-                              child: Text("Mark unread"),
-                              value: "Mark unread from here",
-                            ),
-                            PopupMenuItem(
-                              child: Text("Block linkedln"),
-                              value: "Block linkedln",
-                            ),
-                          ];
-                        },
-                      ),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.reply),
+                          onPressed: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (builder) => Reply(
+                            //             index: 1,
+                            //             title: "Reply",
+                            //             user: widget.user.name,
+                            //             subject: widget.subject,
+                            //             msg: widget.text,
+                            //             time: widget.time)));
+                          },
+                        ),
+                        // Flexible(
+                        //   child: PopupMenuButton<String>(
+                        //     //offset: Offset(10, 40),
+                        //     onSelected: (value) {
+                        //       print(value);
+                        //     },
+                        //     itemBuilder: (BuildContext context) {
+                        //       return [
+                        //         PopupMenuItem(
+                        //           child: Text("Reply all"),
+                        //           value: "Reply all",
+                        //         ),
+                        //         PopupMenuItem(
+                        //           child: Text("Forward"),
+                        //           value: "Forward",
+                        //         ),
+                        //         PopupMenuItem(
+                        //           child: Text("Add star"),
+                        //           value: "Add star",
+                        //         ),
+                        //         PopupMenuItem(
+                        //           child: Text("Print"),
+                        //           value: "Print",
+                        //         ),
+                        //         PopupMenuItem(
+                        //           child: Text("Mark unread"),
+                        //           value: "Mark unread from here",
+                        //         ),
+                        //         PopupMenuItem(
+                        //           child: Text("Block linkedln"),
+                        //           value: "Block linkedln",
+                        //         ),
+                        //       ];
+                        //     },
+                        //   ),
+                        // ),
 
 
-                      //Icon(Icons.more_vert),
-                    ],
+                        //Icon(Icons.more_vert),
+                      ],
+                    ),
                   )
                 ],
               ),

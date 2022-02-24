@@ -1,4 +1,6 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gmail_responsive/src/imports_files/import_configs.dart';
 import 'package:flutter_gmail_responsive/src/imports_files/import_screens.dart';
 import 'package:flutter_gmail_responsive/src/imports_files/import_values.dart';
@@ -15,6 +17,34 @@ class _GmailDashboardPageState extends State<GmailDashboardPage> {
 
     int _currentIndex = 0;
     final List<Widget> _children = [Mails(), Meet()];
+    
+    void firebaseOnMessaging(){
+      FirebaseMessaging.onMessage.listen((message) { 
+        if (message != null) {
+          final title = message.notification?.title;
+          final body = message.notification?.body;
+          
+          showDialog(context: context, builder: (context){
+            return SimpleDialog(
+              contentPadding: EdgeInsets.all(8),
+              children: [
+                Text(title!),
+                Text(body!),
+              ],
+            );
+          });
+        }
+        
+        
+      });
+    }
+
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    firebaseOnMessaging();
+  }
 
     @override
     Widget build(BuildContext context) {
@@ -43,11 +73,14 @@ class _GmailDashboardPageState extends State<GmailDashboardPage> {
       );
 
       return Scaffold(
-        body: Responsive(
-          // Let's work on our mobile part
-          mobile: _children[_currentIndex],
-          tablet: tabletAndDesktopView,
-          desktop: tabletAndDesktopView,
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle.dark,
+          child: Responsive(
+            // Let's work on our mobile part
+            mobile: _children[_currentIndex],
+            tablet: tabletAndDesktopView,
+            desktop: tabletAndDesktopView,
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           fixedColor: Colors.black,

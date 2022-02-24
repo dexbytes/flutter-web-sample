@@ -60,7 +60,7 @@ class _MailsState extends State<Mails> {
 
     Widget _buildBody(){
       return Padding(
-        padding: const EdgeInsets.only(top: 40),
+        padding: const EdgeInsets.only(top: 20),
         child: CustomScrollView(
           controller: _scrollController,
           slivers: [
@@ -326,7 +326,7 @@ class _MailsState extends State<Mails> {
       Scaffold(
      drawer:  Drawers(),
       key: _key,
-      body: _buildBody(),
+      body: SafeArea(bottom: false,child: _buildBody()),
       floatingActionButton: _buildFloatingButton()
     ):Scaffold(
         body: _buildBody(),

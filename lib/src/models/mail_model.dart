@@ -47,14 +47,14 @@ List<Mail> mailList = [
     isStarred: false,
     unread: true,
   ),
-  Mail(
-    sender: sugar,
-    time: '9:55 PM',
-    text: 'Get the best ❤️red❤️ mini Lipstick💄 Set at a complete 25% discount...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    subject: 'Limited-edition V-day 💄',
-    isStarred: false,
-    unread: false,
-  ),
+  // Mail(
+  //   sender: sugar,
+  //   time: '9:55 PM',
+  //   text: 'Get the best ❤️red❤️ mini Lipstick💄 Set at a complete 25% discount...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  //   subject: 'Limited-edition V-day 💄',
+  //   isStarred: false,
+  //   unread: false,
+  // ),
   Mail(
     sender: medium,
     time: '9:05 PM',

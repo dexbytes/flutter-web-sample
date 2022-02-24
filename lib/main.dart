@@ -1,8 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_gmail_responsive/src/imports_files/import_screens.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
+  FirebaseMessaging.instance.getToken().then((value){
+    String? jdsfh = value;
+    print('$value');
+  });
 }
 
 class MyApp extends StatelessWidget {
