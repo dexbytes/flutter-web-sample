@@ -7,16 +7,19 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(const MyApp());
-  FirebaseMessaging.instance.getToken().then((value){
-    String? jdsfh = value;
-    print('$value');
-  });
+  // FirebaseMessaging.instance.getToken().then((value){
+  //   String? jdsfh = value;
+  //   print('$value');
+  // });
+  FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
 }
 
+
+Future<void> _backgroundMessageHandler(RemoteMessage message)async {
+
+}
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 

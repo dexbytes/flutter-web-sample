@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_gmail_responsive/src/imports_files/import_configs.dart';
 import 'package:flutter_gmail_responsive/src/imports_files/import_screens.dart';
 import 'package:flutter_gmail_responsive/src/imports_files/import_values.dart';
 import 'package:flutter_gmail_responsive/src/models/mail_model.dart';
+import 'package:flutter_gmail_responsive/src/utility/firebase_notification_handler.dart';
 
 class GmailDashboardPage extends StatefulWidget {
   const GmailDashboardPage({Key? key}) : super(key: key);
@@ -39,11 +42,34 @@ class _GmailDashboardPageState extends State<GmailDashboardPage> {
       });
     }
 
+    void firebaseonMessageOpenedApp(){
+      FirebaseMessaging.onMessageOpenedApp.listen((message) {
+        if (message != null) {
+          final title = message.notification?.title;
+          final body = message.notification?.body;
+
+        /*  showDialog(context: context, builder: (context){
+            return SimpleDialog(
+              contentPadding: EdgeInsets.all(8),
+              children: [
+                Text(title!),
+                Text(body!),
+              ],
+            );
+          });*/
+        }
+
+
+      });
+    }
+
     @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    firebaseOnMessaging();
+    FirebaseNotifications().getToken();
+
+
   }
 
     @override
